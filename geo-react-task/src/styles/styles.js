@@ -1,0 +1,65 @@
+const styles = {
+  container: {
+    minHeight: '100vh',
+    display: 'flex',
+    flexDirection: 'column',
+    backgroundColor: '#f9f9f9',
+    fontFamily: 'sans-serif',
+  },
+  header: {
+    backgroundColor: '#4CAF50',
+    color: 'white',
+    padding: '1rem',
+    textAlign: 'center',
+    fontSize: 'clamp(1.2rem, 3vw, 1.5rem)',
+  },
+  controls: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexWrap: 'wrap',
+    gap: '1rem',
+    margin: '1rem',
+    padding: '0 1rem',
+  },
+  inputGroup: {
+    display: 'flex',
+    gap: '0.5rem',
+    alignItems: 'center',
+    backgroundColor: '#fff',
+    padding: '0.75rem 1rem',
+    borderRadius: '8px',
+    boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+    minWidth: '215px',
+  },
+  button: {
+    padding: '0.75rem 1.5rem',
+    backgroundColor: '#4CAF50',
+    color: 'white',
+    border: 'none',
+    borderRadius: '4px',
+    cursor: 'pointer',
+    boxShadow: '0 2px 4px rgba(0,0,0,0.2)',
+    minWidth: '200px',
+  },
+  mapContainer: {
+    flex: 1,
+    padding: '0 1rem 1rem 1rem',
+  },
+  mapWrapper: {
+    height: 'calc(100vh - 200px)',
+    minHeight: '400px',
+    border: '1px solid #ccc',
+    borderRadius: '8px',
+    boxShadow: '0 2px 6px rgba(0,0,0,0.2)',
+    overflow: 'hidden',
+  },
+  footer: {
+    backgroundColor: '#4CAF50',
+    color: 'white',
+    textAlign: 'center',
+    padding: '0.5rem',
+  },
+}
+
+export default styles

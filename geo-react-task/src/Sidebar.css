@@ -1,0 +1,57 @@
+.scroll-sidebar-div {
+    width: 250px;
+    background-color: black;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+}
+
+.hide-show-container {
+    width: 100%;
+}
+
+.sidepanel-container {
+    width: 100%;
+}
+
+.sidenav {
+    width: 100%;
+}
+
+.sidepanel-container div {
+    gap: 43%;
+}
+
+.dropdown-btn {
+    background-color: gray;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.hidden-container {
+    background-color: black;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.dropdown-div {
+    font-size: 13px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.dropdown-div hr {
+    margin: 5px 0;
+}
+
+.dropdown-div:hover {
+    background-color: #555;
+}

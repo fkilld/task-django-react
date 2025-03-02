@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leaflet TMS Map</title>
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+    <!-- Leaflet JavaScript -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <style>
+        /* Give the map a fixed height */
+        #map {
+            width: 100%;
+            height: 600px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Leaflet TMS Example</h1>
+    <div id="map"></div>
+<script>
+    async function loadTMS() {
+        try {
+            // Fetch TMS URL from Django API
+            const response = await fetch('/get_images/?start_date=2023-01-01&end_date=2023-12-31&bbox=-122.4,37.7,-121.9,38.0');
+            const data = await response.json();
+
+            if (!data.tms_url) {
+                console.error('No TMS URL received:', data);
+                return;
+            }
+
+            console.log('✅ TMS URL:', data.tms_url);
+
+            // Initialize Leaflet map
+            const map = L.map('map').setView([37.7, -122.4], 8);
+
+            // Ensure placeholders are correctly interpreted
+            const tileUrl = data.tms_url.replace(/\{z\}/g, '{z}').replace(/\{x\}/g, '{x}').replace(/\{y\}/g, '{y}');
+
+            console.log('🚀 Final Tile URL:', tileUrl);
+
+            // Add the tile layer to the map
+            L.tileLayer(tileUrl, {
+                attribution: 'Map data © Google Earth Engine',
+                tileSize: 256,  // Important for correct tiling
+                zoomOffset: 0,
+                tms: false  // Ensure correct tile structure
+            }).addTo(map);
+
+        } catch (error) {
+            console.error('❌ Error loading TMS:', error);
+        }
+    }
+
+    // Load the TMS layer when the page loads
+    loadTMS();
+</script>
+
+</body>
+</html>
